@@ -13,6 +13,8 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.darklightapp.lib.LightThemeManager;
+
 public class MainActivity extends AppCompatActivity {
     Button nextActivityButton;
     TextView systemStatusThemeTV;
@@ -38,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setSystemStatusTheme(){
-        int currentNightMode = getResources().getConfiguration().uiMode
-                & Configuration.UI_MODE_NIGHT_MASK;
+        int currentNightMode = LightThemeManager.getThemeStatus(this).getId();
         switch (currentNightMode) {
             case Configuration.UI_MODE_NIGHT_NO:
                 systemStatusThemeTV.setText(systemThemeNowString + "Светлая");
@@ -55,6 +56,4 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
         setSystemStatusTheme();
     }
-
-
 }
