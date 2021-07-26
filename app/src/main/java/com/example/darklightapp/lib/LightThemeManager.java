@@ -65,7 +65,7 @@ public class LightThemeManager {
 
     public static SaveThemeFromPreference getSavedTheme(Context context){
         SharedPreferences preferences = context.getSharedPreferences(preferenceName,MODE_PRIVATE);
-        return SaveThemeFromPreference.fromInt(preferences.getInt(preferenceSavedThemeName,0));
+        return SaveThemeFromPreference.fromInt(preferences.getInt(preferenceSavedThemeName,SaveThemeFromPreference.THEME_SYSTEM.getId()));
     }
 
     public static void setSaveTheme(Context context){
